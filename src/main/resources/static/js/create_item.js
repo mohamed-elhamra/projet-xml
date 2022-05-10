@@ -5,9 +5,12 @@ function onSubmit() {
         headers: {"Content-type": "application/xml; charset=UTF-8"}
     })
         .then(response => response.text())
-        .then(data => document.documentElement.append(data))
+        .then(data => {
+            const createdItem = document.getElementById('created_item');
+            createdItem.innerText = `Ces informations (Article créé) seront disaprus après 10 secondes : \n\n ${data} \n`;
+            setTimeout(() => {
+                window.location.reload();
+            }, 10000);
+        })
         .catch(err => console.log(err));
-    setTimeout(() => {
-        window.location.reload();
-    }, 5500);
 }

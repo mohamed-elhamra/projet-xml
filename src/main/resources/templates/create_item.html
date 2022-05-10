@@ -9,7 +9,11 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container mt-2">
+        <div class="row" style="height: 45px;">
+            <a th:href="@{/items_list}" class="btn btn-info">Liste des articles</a>
+        </div>
+        <div class="row justify-content-center">
             <form method="post" class="mt-5">
                 <div class="row justify-content-center">
                     <h3>Ajouter un article</h3>
@@ -23,7 +27,10 @@
                     <input class="btn btn-primary mt-3" type="button" onclick="onSubmit();" value="Ajouter article">
                 </div>
             </form>
+        </div>
+        <div class="row justify-content-center mt-2" id="created_item">
 
+        </div>
     </div>
 </body>
 </html>

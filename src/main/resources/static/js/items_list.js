@@ -22,6 +22,7 @@ fetch('/rss22/resume/html')
             tr.push(
                 `<td>` +
                 `<input onclick="itemDetails('${itemObject[i].childNodes[0].textContent}');" class="btn btn-success mr-2" type="button" value="Détails"/>` +
+                `<input onclick="itemXml('${itemObject[i].childNodes[0].textContent}');" class="btn btn-info mr-2" type="button" value="Affichage format XML"/>` +
                 `<input onclick="deleteItem('${itemObject[i].childNodes[0].textContent}');" class="btn btn-danger mr-2" type="button" value="Supprimer"/>` +
                 `</td>`
             )
@@ -39,7 +40,7 @@ const deleteItem = (guid) => {
         .then(response => response.text())
         .then(data => {
             let deleteItemDiv = document.getElementById("deletedItem");
-            deleteItemDiv.innerText = `Ces informations seront disaprus après 10 secondes : \n\n ${data} \n`;
+            deleteItemDiv.innerText = `Ces informations (Article supprimé) seront disaprus après 10 secondes : \n\n ${data} \n`;
             setTimeout(() => {
                 window.location.href = '/items_list';
             }, 10000);
@@ -49,4 +50,8 @@ const deleteItem = (guid) => {
 
 const itemDetails = (guid) => {
     window.location.href = `/item_details/${guid}`;
+}
+
+const itemXml = (guid) => {
+    window.location.href = `/rss22/resume/xml/${guid}`;
 }
