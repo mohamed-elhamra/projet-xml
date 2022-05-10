@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "692f20be-6371-43f5-b53c-c45eb14d7c6b",
+		"name": "jrss22_Maimouni_Elhamra",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "findItemList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/rss22/resume/html",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rss22",
+						"resume",
+						"html"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findItemByGuid",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/rss22/resume/html/550834e8-e1cd-439b-aeb6-dea1f48920a3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rss22",
+						"resume",
+						"html",
+						"550834e8-e1cd-439b-aeb6-dea1f48920a3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createItem",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0MTU4OTExMCwiaWF0IjoxNjQwNzI1MTEwLCJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwidXNlcm5hbWUiOiJhZG1pbiJ9.UBu33OjmKuJKiEaRVs5C0CQ-Ll-B5jgLAeqtUNc02qaj_3UVo2ycZGx5zmguoOL0trHTmdk7jNYGkqL3uEhk8Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Bearer",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<item>\r\n    <title>creationTest</title>\r\n    <categories>\r\n        <categories term=\"term2\"/></categories>\r\n    <publishedOrUpdated>2022-06-05</publishedOrUpdated>\r\n    <image type=\"GIF\" href=\"href2\" alt=\"alt2\" length=\"16\"/>\r\n    <content type=\"TEXT\" url=\"url2\"/>\r\n    <auteurOuContributeurs>\r\n        <auteurOuContributeur>\r\n            <nom>name2</nom>\r\n            <email>test2@gmail.fr</email>\r\n            <uri>uri2</uri>\r\n        </auteurOuContributeur>\r\n    </auteurOuContributeurs>\r\n</item>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/rss22/insert",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rss22",
+						"insert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getItemByGuid",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/rss22/resume/xml/6c080e46-68cc-44f8-8072-8b3a8a0a95a4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rss22",
+						"resume",
+						"xml",
+						"6c080e46-68cc-44f8-8072-8b3a8a0a95a4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getListOfItems",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/rss22/resume/xml",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rss22",
+						"resume",
+						"xml"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteItem",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/rss22/delete/de3a3c97-0ad2-4909-9b40-2e8da680db74",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rss22",
+						"delete",
+						"de3a3c97-0ad2-4909-9b40-2e8da680db74"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
