@@ -7,7 +7,7 @@ spring:
     show-sql: true
 
   datasource:
-    url: jdbc:mysql://b0kbxiknk3l9ygwrbhdn-mysql.services.clever-cloud.com
+    url: jdbc:mysql://ukjuuxiircsh1vcl:GhkJfI7mrUCG5atZxLt3@b0kbxiknk3l9ygwrbhdn-mysql.services.clever-cloud.com:3306/b0kbxiknk3l9ygwrbhdn
     username: ukjuuxiircsh1vcl
     password: GhkJfI7mrUCG5atZxLt3
     driver-class-name: com.mysql.jdbc.Driver
