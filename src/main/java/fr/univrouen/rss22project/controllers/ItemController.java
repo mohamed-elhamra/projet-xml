@@ -29,25 +29,22 @@ public class ItemController {
         return ResponseEntity.ok(itemService.getItemById(guid));
     }
 
-    @PostMapping(
-            value = "/insert",
-            produces = MediaType.APPLICATION_XML_VALUE
-    )
+    @PostMapping(value = "/insert", produces = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<Item> createItem(@RequestBody Item item) {
         return ResponseEntity.ok(itemService.createItem(item));
     }
 
-    @DeleteMapping("/delete/{guid}")
+    @DeleteMapping(value = "/delete/{guid}", produces = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<Item> deleteItem(@PathVariable UUID guid) {
         return ResponseEntity.ok(itemService.deleteItem(guid));
     }
 
-    @GetMapping(value = "/resume/html")
+    @GetMapping(value = "/resume/html", produces = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<List<ItemDto>> findItemList() {
         return ResponseEntity.ok(itemService.findItemList());
     }
 
-    @GetMapping(value = "/resume/html/{guid}")
+    @GetMapping(value = "/resume/html/{guid}", produces = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<Item> findItemByGuid(@PathVariable("guid") UUID guid) {
         return ResponseEntity.ok(itemService.findItemByGuid(guid));
     }
