@@ -21,6 +21,7 @@ fetch('/rss22/resume/html')
             tr.push('<td>' + itemObject[i].childNodes[2].textContent + '</td>');
             tr.push(
                 `<td>` +
+                `<input onclick="itemDetails('${itemObject[i].childNodes[0].textContent}');" class="btn btn-success mr-2" type="button" value="Détails"/>` +
                 `<input onclick="deleteItem('${itemObject[i].childNodes[0].textContent}');" class="btn btn-danger mr-2" type="button" value="Supprimer"/>` +
                 `</td>`
             )
@@ -44,4 +45,8 @@ const deleteItem = (guid) => {
             }, 10000);
         })
         .catch(console.error);
+}
+
+const itemDetails = (guid) => {
+    window.location.href = `/item_details/${guid}`;
 }

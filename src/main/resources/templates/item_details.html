@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script th:inline="javascript">
+        const guid = [[${guid}]];
+        fetch(`/rss22/resume/html/` + guid)
+            .then(response => response.text())
+            .then(data => {
+                let tr = [];
+                const parser = new DOMParser();
+                const xml = parser.parseFromString(data, "application/xml");
+                const itemObject = xml.documentElement.childNodes;
+                tr.push('<table border="0">');
+                for (let i = 0; i < itemObject.length; i++) {
+                    if (itemObject[i].nodeName !== "categories" && itemObject[i].nodeName !== "authorOrContributors"
+                        && itemObject[i].nodeName !== "image" && itemObject[i].nodeName !== "content") {
+                        tr.push('<tr>');
+                        tr.push('<td>' + itemObject[i].nodeName + '</td>');
+                        tr.push('<td>:</td>');
+                        tr.push('<td>' + itemObject[i].textContent + '</td>');
+                        tr.push('</tr>');
+                    }
+                }
+                tr.push('</table>');
+                document.getElementById("itemDetails").innerHTML = tr.join('');
+            })
+            .catch(console.error);
+    </script>
+    <script th:src="@{/js/item_details.js}" th:inline="javascript"></script>
+    <title>Détails de l'article</title>
+</head>
+<body>
+    <h1>Article</h1>
+    <a th:href="@{/items_list}">Revenir vers la liste des articles</a>
+    <br/><br/>
+    <div id="itemDetails">
+
+    </div>
+</body>
+</html>
