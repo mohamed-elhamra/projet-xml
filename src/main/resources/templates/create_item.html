@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Insértion d'un nouvel article</title>
+    <link th:href="@{/css/create_item.css}" rel="stylesheet" />
+    <script th:src="@{/js/create_item.js}" type="text/javascript"></script>
+</head>
+
+<body>
+    <div class="container">
+        <form method="post">
+            <label for="item">Informations sur l'article:</label>
+            <textarea id="item" rows="5" cols="33"
+                      placeholder="Insérez un article sous format xml..."></textarea>
+            <br><br>
+            <input type="button" onclick="onSubmit();" value="Ajouter article">
+        </form>
+    </div>
+</body>
+</html>
