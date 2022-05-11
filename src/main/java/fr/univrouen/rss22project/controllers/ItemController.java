@@ -15,6 +15,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/rss22")
 @AllArgsConstructor
+@CrossOrigin
 public class ItemController {
 
     ItemService itemService;

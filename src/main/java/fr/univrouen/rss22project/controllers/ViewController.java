@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @Controller
-@CrossOrigin
 public class ViewController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
