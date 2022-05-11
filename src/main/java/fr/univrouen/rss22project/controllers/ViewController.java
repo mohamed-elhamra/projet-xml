@@ -14,12 +14,12 @@ public class ViewController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String pageAcceuil() {
-        return "Home";
+        return "home";
     }
 
     @RequestMapping(value = "/help", method = RequestMethod.GET)
     public String pageHelp() {
-        return "Help";
+        return "help";
     }
 
     @GetMapping("/create_item")
